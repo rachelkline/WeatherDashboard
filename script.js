@@ -123,9 +123,9 @@ function getWeather(city, citySearchList) {
 };
 
 $(document).ready(function () {
-    var citySearchListStringified = localStorage.getItem("citySearchList");
+    var citiesStringified = localStorage.getItem("citySearchList");
 
-    var citySearchList = JSON.parse(citySearchListStringified);
+    var citySearchList = JSON.parse(citiesStringified);
 
     if(citySearchList == null){
         citySearchList = {};
@@ -164,6 +164,12 @@ $(document).ready(function () {
         $("#history").empty();
         history.go(0);
     });
+
+    //When page is refreshed, the last search appears
+    renderCityList(citySearchList);
+    if(citySearchList.length > 0) {
+        getWeather(citySearchList[citySearchList.length - 1]);
+    }
 
 });
 

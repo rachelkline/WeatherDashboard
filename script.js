@@ -96,10 +96,11 @@ function getWeather(city, citySearchList) {
                     card.append(cardBody);
                     $("#forecast").append(card);
 
-                    var forecastDateEL = $("<p>").addClass("card-title").text(forecastMonth + "/" + forecastDay + "/" + forecastYear);
+                    var forecastDateEL = $("<h5>").addClass("card-title").text(forecastMonth + "/" + forecastDay + "/" + forecastYear);
 
                     //Weather Icom
                     var weatherImage = $("<img>").attr("src", "http://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + "@2x.png");
+                    weatherImage.addClass("card-image");
 
                     //temp
                     var temp = (response.list[i].main.temp - 273.15) * 1.8 + 32;
@@ -116,7 +117,7 @@ function getWeather(city, citySearchList) {
                 }
 
             }
-        })
+        });
     });
 
 };
@@ -153,14 +154,15 @@ $(document).ready(function () {
     $("#history").on("click", "button", function(event){
         event.preventDefault();
         var city = $(this).text();
-
+        $("#forecastH3").show();
         getWeather(city, citySearchList);
 
-    })
+    });
 
     $("#clear-history").on("click", function () {
-        citySearchList = [];
-        renderCityList(citySearchList);
+        localStorage.clear();
+        $("#history").empty();
+        history.go(0);
     });
 
 });

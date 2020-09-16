@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <style src="style.css"></style>
+
     <title>Weather Dashboard</title>
 </head>
 
 <body>
     <nav class="navbar navbar-dark bg-dark">
-        <span class="navbar-brand mb-0 h w-100 text-center">Weather Dashboard</span>
+        <span id="header" class="navbar-brand mb-0 h w-100 text-center">Weather Dashboard</span>
     </nav>
     <div class="container">
         <div class="row">
@@ -30,8 +30,6 @@
                 </div>
                 <button class="btn btn-primary mb-3" type="button" id="clear-history">Clear history</button>
                 <ul id="history" class="list-group"></ul>
-                <!-- <ul class="list-group list-group-flush list">
-                </ul> -->
             </div>
 
             <div class="col-8">
@@ -39,26 +37,26 @@
                     <div class="col-12 border border-dark m-3 rounded">
                         <div class="row">
                             <div class="col-12">
-                                <h2 id="city-name" class="city-name align-middle"></h2>
+                                <h2 id="city-name" class="city-name city align-middle"></h2>
 
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row city">
                             <div class="col-12">
                                 <p id="temperature"></p>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row city">
                             <div class="col-12">
                                 <p id="humidity"></p>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row city">
                             <div class="col-12">
                                 <p id="wind-speed"></p>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row city">
                             <div class="col-12 d-flex">
                                 <p id="UV-index"></p>
                             </div>
@@ -70,24 +68,9 @@
         <div class="row">
             <div class="mt-4 col-md-12">
                 <h3 id="forecastH3" style="display:none" class="mt-3">5-Day Forecast</h3>
-
             </div>
         </div>
-        <div id="forecast" class="row">
-
-            <!-- <img class="currWeatherLogo"> -->
-            <!-- </div>
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded">
-                        <img class="currWeatherLogo">
-                    </div>
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded">
-                        <img class="currWeatherLogo">
-                    </div>
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded">
-                        <img class="currWeatherLogo">
-                    </div>
-                    <div class="col forecast bg-primary text-white ml-3 mb-3 rounded">
-                        <img class="currWeatherLogo"> -->
+        <div id="forecast" class="forecast-cards row">
 
         </div>
 
@@ -97,6 +80,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
 
+    <style>
+        #header {
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        /* .forecast-cards {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+        } */
+
+        .card {
+            margin: 15px;
+        }
+
+        .card-title .card-text .card-image{
+            /* display: flex; */
+            text-align: center;
+            justify-content: center;
+        }
+    </style>
 
 </body>
 
